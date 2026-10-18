@@ -1,0 +1,9 @@
+import re
+
+for _ in range(int(input())):
+    phone = input().strip()
+
+    if re.fullmatch(r'[789]\d{9}', phone):
+        print('YES')
+    else:
+        print('NO')
