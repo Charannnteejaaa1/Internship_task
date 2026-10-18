@@ -1,0 +1,19 @@
+if __name__ == '__main__':
+    n = int(input())
+    t = tuple(map(int, input().split()))
+
+    x = 0x345678
+    mult = 1000003
+    length = len(t)
+
+    for item in t:
+        x = (x ^ item) * mult
+        length -= 1
+        mult += 82520 + length + length
+
+    x += 97531
+
+    if x == -1:
+        x = -2
+
+    print(x)
