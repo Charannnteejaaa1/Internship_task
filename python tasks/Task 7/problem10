@@ -1,0 +1,13 @@
+import os
+
+def camelcase(s):
+    return 1 + sum(1 for char in s if char.isupper())
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input().strip()
+    result = camelcase(s)
+
+    fptr.write(str(result) + '\n')
+    fptr.close()
