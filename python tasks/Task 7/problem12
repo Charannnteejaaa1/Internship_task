@@ -1,0 +1,24 @@
+import os
+from collections import Counter
+
+def makeAnagram(a, b):
+    count_a = Counter(a)
+    count_b = Counter(b)
+
+    deletions = 0
+
+    for char in set(a + b):
+        deletions += abs(count_a[char] - count_b[char])
+
+    return deletions
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = input().strip()
+    b = input().strip()
+
+    result = makeAnagram(a, b)
+
+    fptr.write(str(result) + '\n')
+    fptr.close()
