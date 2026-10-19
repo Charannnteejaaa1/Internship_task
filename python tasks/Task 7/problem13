@@ -1,0 +1,25 @@
+import os
+from collections import Counter
+
+def isValid(s):
+    freq = Counter(Counter(s).values())
+
+    if len(freq) == 1:
+        return "YES"
+
+    if len(freq) == 2:
+        f1, f2 = sorted(freq.keys())
+
+        if (f1 == 1 and freq[f1] == 1) or (f2 - f1 == 1 and freq[f2] == 1):
+            return "YES"
+
+    return "NO"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input().strip()
+    result = isValid(s)
+
+    fptr.write(result + '\n')
+    fptr.close()
